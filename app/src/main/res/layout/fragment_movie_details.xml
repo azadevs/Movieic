@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.MovieDetailsFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/ivMovieImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:minHeight="250dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder"
+                app:layout_collapseMode="parallax"
+                tools:ignore="ContentDescription" />
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_back" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-16dp"
+        android:background="@drawable/top_cut_corners_background"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:ignore="RtlSymmetry">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@id/ivBookmark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Spiderman no way home asd" />
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="@string/text_bookmark"
+                android:src="@drawable/ic_bookmark_border"
+                app:layout_constraintBottom_toBottomOf="@id/tvMovieTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvMovieTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_star"
+                android:drawablePadding="6dp"
+                android:includeFontPadding="false"
+                android:paddingTop="4dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:fontFamily="@font/poppins_light"
+                app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
+                tools:text="6.4/10 IMDb" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:scrollbarSize="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvMovieRate"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieRate">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieLengthLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/text_length"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/tvMovieLanguageLabel"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieLengthLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieLengthLabel"
+                tools:text="1h 47m" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieLanguageLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/text_language"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/tvMovieRatingLabel"
+                app:layout_constraintStart_toEndOf="@id/tvMovieLengthLabel"
+                app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieLanguageLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieLanguageLabel"
+                tools:text="1h 47m" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieRatingLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/text_rating"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvMovieLanguageLabel"
+                app:layout_constraintTop_toBottomOf="@id/horizontalScrollView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvMovieRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieRatingLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieRatingLabel"
+                tools:text="1h 47m" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescriptionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingVertical="4dp"
+                android:text="@string/text_description"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieLength" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@id/ivBookmark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescriptionLabel"
+                tools:text="@tools:sample/lorem/random" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCastLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingVertical="4dp"
+                android:text="@string/text_cast"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvCastLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnPlay"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/ic_play_circle"
+        app:backgroundTint="?colorSecondaryContainer"
+        app:borderWidth="0dp"
+        app:elevation="2dp"
+        app:fabCustomSize="60dp"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="center"
+        app:maxImageSize="30dp"
+        app:tint="?colorOnBackground"
+        tools:ignore="ContentDescription" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorSurfaceContainer"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

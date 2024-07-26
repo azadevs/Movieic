@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_menu_movies"
+        android:enabled="true"
+        android:title="@string/menu_movies" />
+
+    <item
+        android:id="@+id/bookmarksMovieFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu_bookmarks"
+        android:title="@string/text_bookmarks" />
+</menu>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Movieic</string>
+    <string name="text_now_playing">Now playing</string>
+    <string name="text_top_rated">Top Rated</string>
+    <string name="text_see_more">See more</string>
+    <string name="text_rate">%1$s/10 IMDb</string>
+    <string name="text_length">Length</string>
+    <string name="text_language">Language</string>
+    <string name="text_rating">Rating</string>
+    <string name="text_description">Description</string>
+    <string name="text_cast">Cast</string>
+    <string name="text_movie_image">Movie image</string>
+    <string name="text_movies">Movies - %1$d</string>
+    <string name="menu_movies">Movies</string>
+    <string name="text_bookmarks">Bookmarks</string>
+    <string name="text_bookmark">bookmark</string>
+    <string name="text_no_movies">No movies</string>
+    <string name="text_no_movies_image">No movies image</string>
+    <string name="error_http">An error occurred while fetching data. Please try again later.</string>
+    <string name="error_network">Network error. Please check your internet connection.</string>
+    <string name="error_unknown">Unexpected error occurred. Please try again later.</string>
+    <string name="error_occurred">Error occurred</string>
+</resources>

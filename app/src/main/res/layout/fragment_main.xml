@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.main.MainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/app_name"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/homeToolbarTitleStyle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNowPlayingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:padding="4dp"
+            android:text="@string/text_now_playing"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/rvNowPlaying"
+            app:layout_constraintStart_toStartOf="@id/toolbar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSeeMoreNowPlaying"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="10dp"
+            android:text="@string/text_see_more"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/rvNowPlaying"
+            app:layout_constraintEnd_toEndOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:strokeColor="?colorOutlineVariant"
+            app:strokeWidth="0dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNowPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:minHeight="200dp"
+            android:paddingBottom="4dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/btnSeeMoreNowPlaying"
+            tools:listitem="@layout/item_movie_horizontal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPopularLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:padding="4dp"
+            android:text="@string/text_top_rated"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/rvTopRated"
+            app:layout_constraintStart_toStartOf="@id/toolbar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSeeMoreTopRated"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/rvNowPlaying"
+            android:text="@string/text_see_more"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/rvTopRated"
+            app:layout_constraintEnd_toEndOf="@id/toolbar"
+            app:strokeColor="?colorOutlineVariant"
+            app:strokeWidth="0dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopRated"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp"
+            android:paddingStart="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSeeMoreTopRated"
+            tools:listitem="@layout/item_movie_vertical" />
+
+        <ProgressBar
+            android:id="@+id/progressBarTopRated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/rvTopRated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rvTopRated" />
+
+        <ProgressBar
+            android:id="@+id/progressBarNowPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/rvNowPlaying"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rvNowPlaying" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

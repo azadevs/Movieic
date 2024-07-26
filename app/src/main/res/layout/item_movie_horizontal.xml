@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardMovieImage"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_margin="12dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:id="@+id/ivMovieImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/text_movie_image"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMovieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardMovieImage"
+        android:layout_alignStart="@id/cardMovieImage"
+        android:layout_alignEnd="@id/cardMovieImage"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_semibold"
+        android:maxLines="2"
+        android:textSize="16sp"
+        tools:text="Venom Let there be Carnage" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvMovieRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:drawableStart="@drawable/ic_star"
+        android:drawablePadding="6dp"
+        android:layout_below="@id/tvMovieTitle"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:fontFamily="@font/poppins_light"
+        tools:text="6.4/10 IMDb" />
+
+</RelativeLayout>
