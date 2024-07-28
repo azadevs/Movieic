@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardMovieImage"
         style="@style/Widget.Material3.CardView.Elevated"
-        android:layout_width="200dp"
-        android:layout_height="250dp"
-        android:layout_margin="12dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp">
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ivMovieImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="240dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/text_movie_image"
             android:scaleType="centerCrop"
@@ -26,33 +28,32 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvMovieTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardMovieImage"
-        android:layout_alignStart="@id/cardMovieImage"
-        android:layout_alignEnd="@id/cardMovieImage"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_semibold"
         android:maxLines="2"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/cardMovieImage"
+        app:layout_constraintStart_toStartOf="@id/cardMovieImage"
+        app:layout_constraintTop_toBottomOf="@id/cardMovieImage"
         tools:text="Venom Let there be Carnage" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvMovieRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:drawableStart="@drawable/ic_star"
         android:drawablePadding="6dp"
-        android:layout_below="@id/tvMovieTitle"
         android:includeFontPadding="false"
         android:textAlignment="center"
         android:textSize="14sp"
         app:fontFamily="@font/poppins_light"
+        app:layout_constraintStart_toStartOf="@id/tvMovieTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvMovieTitle"
         tools:text="6.4/10 IMDb" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
