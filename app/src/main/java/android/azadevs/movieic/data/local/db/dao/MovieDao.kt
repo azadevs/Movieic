@@ -19,7 +19,7 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<MovieEntity>)
 
-    @Query("SELECT * FROM movies_table WHERE movie_type=:movieType")
+    @Query("SELECT * FROM movies_table WHERE movie_type=:movieType LIMIT 20")
     suspend fun getAllMovies(movieType: String): List<MovieEntity>
 
     @Query("SELECT * FROM movie_details_table WHERE is_bookmarked=1")
