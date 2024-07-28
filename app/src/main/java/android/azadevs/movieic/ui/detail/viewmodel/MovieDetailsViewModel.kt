@@ -50,9 +50,13 @@ class MovieDetailsViewModel @Inject constructor(
     }
 
     fun refresh() {
-        movieId?.let { movieId ->
-            getMovieDetails(movieId)
-            getMovieCast(movieId)
+        viewModelScope.launch {
+            _movieDetailsState.value = MovieDetailsUiState.Loading
+            _movieCastState.value = MovieDetailsUiState.Loading
+            movieId?.let { movieId ->
+                getMovieDetails(movieId)
+                getMovieCast(movieId)
+            }
         }
     }
 

@@ -28,7 +28,9 @@ class MovieTrailersViewModel @Inject constructor(
     val movieVideosState get() = _movieVideosState.asStateFlow()
 
     init {
-        refresh()
+        savedStateHandle.get<Int>(MOVIE_ID_ARG)?.let {
+            getMovieVideos(it)
+        }
     }
 
     private fun getMovieVideos(movieId: Int) {
@@ -54,9 +56,13 @@ class MovieTrailersViewModel @Inject constructor(
     }
 
     fun refresh() {
-        savedStateHandle.get<Int>(MOVIE_ID_ARG)?.let {
-            getMovieVideos(it)
+        viewModelScope.launch {
+            _movieVideosState.value = MovieTrailersUiState.Loading
+            savedStateHandle.get<Int>(MOVIE_ID_ARG)?.let {
+                getMovieVideos(it)
+            }
         }
+
     }
 }
 

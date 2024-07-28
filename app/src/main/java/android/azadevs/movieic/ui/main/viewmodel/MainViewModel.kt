@@ -27,7 +27,8 @@ class MainViewModel @Inject constructor(
     val nowPlayingMovies = _nowPlayingMovies.asStateFlow()
 
     init {
-        refresh()
+        getTopRatedMovies()
+        getNowPlayingMovies()
     }
 
     private fun getTopRatedMovies() {
@@ -68,8 +69,12 @@ class MainViewModel @Inject constructor(
     }
 
     fun refresh() {
-        getTopRatedMovies()
-        getNowPlayingMovies()
+        viewModelScope.launch {
+            _popularMovies.value = MainUIState.Loading
+            _nowPlayingMovies.value = MainUIState.Loading
+            getTopRatedMovies()
+            getNowPlayingMovies()
+        }
     }
 
     override fun onCleared() {

@@ -156,10 +156,10 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         }
         MaterialAlertDialogBuilder(requireContext()).errorDialog(getString(R.string.error_occurred),
             error,
-            {
+            onRetry = {
                 viewModel.refresh()
             },
-            {
+            onCancel = {
                 findNavController().popBackStack()
             })
     }

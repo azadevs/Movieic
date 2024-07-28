@@ -47,7 +47,10 @@ class BookmarkMoviesViewModel @Inject constructor(
     }
 
     fun refresh() {
-        repository.getBookmarkedMovies()
+        viewModelScope.launch {
+            _bookmarkedMoviesState.value = MovieBookmarkUiState.Loading
+            repository.getBookmarkedMovies()
+        }
     }
 
     override fun onCleared() {

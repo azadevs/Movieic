@@ -36,7 +36,13 @@ class MoviesViewModel @Inject constructor(
     val moviesState = _moviesState.asStateFlow()
 
     init {
-        refresh()
+        savedStateHandle.get<String>(Constants.MOVIE_TYPE_ARG)?.let { movieType ->
+            if (movieType == MovieType.NOW_PLAYING.name) {
+                getNowPlayingMovies()
+            } else {
+                getTopRatedMovies()
+            }
+        }
     }
 
     @OptIn(ExperimentalPagingApi::class)
@@ -102,13 +108,17 @@ class MoviesViewModel @Inject constructor(
     }
 
     fun refresh() {
-        savedStateHandle.get<String>(Constants.MOVIE_TYPE_ARG)?.let { movieType ->
-            if (movieType == MovieType.NOW_PLAYING.name) {
-                getNowPlayingMovies()
-            } else {
-                getTopRatedMovies()
+        viewModelScope.launch {
+            _moviesState.value = MoviesUiState.Loading
+            savedStateHandle.get<String>(Constants.MOVIE_TYPE_ARG)?.let { movieType ->
+                if (movieType == MovieType.NOW_PLAYING.name) {
+                    getNowPlayingMovies()
+                } else {
+                    getTopRatedMovies()
+                }
             }
         }
+
     }
 
     companion object {
