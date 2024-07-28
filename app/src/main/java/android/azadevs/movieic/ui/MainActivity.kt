@@ -32,11 +32,12 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.fragmentContainerView)
         configureBottomNav()
 
-         listener = NavController.OnDestinationChangedListener { _, destination, _ ->
+        listener = NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.movieDetailsFragment, R.id.movieTrailerFragment -> {
-                    binding.bottomNav.visibility=View.GONE
+                R.id.movieDetailsFragment, R.id.movieTrailerFragment, R.id.moviesFragment -> {
+                    binding.bottomNav.visibility = View.GONE
                 }
+
                 else -> binding.bottomNav.visibility = View.VISIBLE
             }
         }
