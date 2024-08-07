@@ -13,6 +13,9 @@ The Movieic is an Android application that provides detailed information about m
 - Offline Storage: Cache movie information for offline access, allowing users to view movie details without an active internet connection.
 
 ## Screenshots
+<img src="https://imgur.com/G0IDvw8.png" width="250"> <img src="https://imgur.com/n339gks.png" width="250">
+<img src="https://imgur.com/XifTPog.png" width="250"> <img src="https://imgur.com/UpmAovD.png" width="250">
+<img src="https://imgur.com/ZE1MR1Q.png" width="250"> <img src="https://imgur.com/FgYOdGu.png" width="250">
 
 ## Technologies Used
 
