@@ -9,34 +9,50 @@
         android:id="@+id/movieDetailsFragment"
         android:name="android.azadevs.movieic.ui.detail.MovieDetailsFragment"
         android:label="fragment_details_movie"
-        tools:layout="@layout/fragment_movie_details" >
+        tools:layout="@layout/fragment_movie_details">
         <argument
             android:name="movieId"
             app:argType="integer" />
         <action
             android:id="@+id/action_movieDetailsFragment_to_movieTrailerFragment"
-            app:destination="@id/movieTrailerFragment" />
+            app:destination="@id/movieTrailerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="android.azadevs.movieic.ui.main.MainFragment"
         android:label="fragment_movies"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_moviesFragment_to_movieDetailsFragment"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_moviesFragment_to_seeMoreMoviesFragment"
-            app:destination="@id/moviesFragment" />
+            app:destination="@id/moviesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/bookmarksMovieFragment"
         android:name="android.azadevs.movieic.ui.bookmark.BookmarksMovieFragment"
         android:label="fragment_bookmark_movies"
-        tools:layout="@layout/fragment_movie_bookmarks" >
+        tools:layout="@layout/fragment_movie_bookmarks">
         <action
             android:id="@+id/action_bookmarkMoviesFragment_to_movieDetailsFragment"
-            app:destination="@id/movieDetailsFragment" />
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
